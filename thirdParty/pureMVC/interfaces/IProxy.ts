@@ -31,21 +31,21 @@ module puremvc
 		 */
 		getProxyName(): string;
 
-		/**
-		 * Set the data of the <code>IProxy></code> instance.
-		 *
-		 * @param data
-		 * 		The data to set for the <code>IProxy></code> instance.
-		 */
-		setData(data: any): void;
+		// /**
+		//  * Set the data of the <code>IProxy></code> instance.
+		//  *
+		//  * @param data
+		//  * 		The data to set for the <code>IProxy></code> instance.
+		//  */
+		// setData(data: any): void;
 
-		/**
-		 * Get the data of the <code>IProxy></code> instance.
-		 *
-		 * @return
-		 * 		The data held in the <code>IProxy</code> instance.
-		 */
-		getData(): any;
+		// /**
+		//  * Get the data of the <code>IProxy></code> instance.
+		//  *
+		//  * @return
+		//  * 		The data held in the <code>IProxy</code> instance.
+		//  */
+		// getData(): any;
 
 		/**
 		 * Called by the Model when the <code>IProxy</code> is registered. This method has to be
