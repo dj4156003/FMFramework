@@ -108,13 +108,18 @@ module puremvc
 		/**
 		 * Notify the interested object.
 		 * 
-		 * @param notification
-		 * 		The <code>INotification</code> to pass to the interested object's notification
-		 * 		method.
+		 * @param name
+		 * 		The name of the notification.
+		 *
+		 * @param body
+		 * 		Body data to send with the <code>Notification</code>.
+		 * 
+		 * @param type
+		 * 		Type identifier of the <code>Notification</code>.
 		 */
-		public notifyObserver(notification: INotification): void
+		public notifyObserver(name: string, body: any = null, type: string = null): void
 		{
-			this.getNotifyMethod().call(this.getNotifyContext(), notification);
+			this.getNotifyMethod().call(this.getNotifyContext(), name, body, type);
 		}
 
 		/**

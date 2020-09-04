@@ -50,11 +50,16 @@ module puremvc
 		/**
 		 * Notify the interested object.
 		 * 
-		 * @param notification
-		 * 		The <code>INotification</code> to pass to the interested object's notification
-		 * 		method.
+		 * @param name
+		 * 		The name of the notification.
+		 *
+		 * @param body
+		 * 		Body data to send with the <code>Notification</code>.
+		 * 
+		 * @param type
+		 * 		Type identifier of the <code>Notification</code>.
 		 */
-		notifyObserver(notification: INotification): void;
+		notifyObserver(name: string, body?: any, type?: string): void;
 
 		/**
 		 * Compare an object to the notification context.

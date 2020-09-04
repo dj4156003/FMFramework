@@ -73,5 +73,10 @@ module puremvc
 		 * 		The textual representation of the <code>Notification</code>	instance.
 		 */
 		toString(): string;
+
+		/**
+		 * Clean notification resources.
+		 */
+		dispose():void
 	}
 }

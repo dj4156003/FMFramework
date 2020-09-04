@@ -1,6 +1,5 @@
 ///<reference path='../../interfaces/IMediator.ts'/>
 ///<reference path='../../interfaces/INotifier.ts'/>
-///<reference path='../../interfaces/INotification.ts'/>
 ///<reference path='../../patterns/observer/Notifier.ts'/>
 
 module puremvc
@@ -22,14 +21,14 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		protected _mediatorName:string = null;
+		protected _mediatorName: string = null;
 
 		/**
 		 * The <code>Mediator</code>'s view component.
 		 *
 		 * @protected
 		 */
-		protected _viewComponent:any = null;
+		protected _viewComponent: any = null;
 
 		/**
 		 * Constructs a <code>Mediator</code> instance.
@@ -40,12 +39,12 @@ module puremvc
 		 * @param viewComponent
 		 * 		The view component handled by this <code>Mediator</code>.
 		 */
-		public constructor( mediatorName:string, viewComponent:any=null )
+		public constructor(mediatorName: string, viewComponent: any = null)
 		{
 			super();
 
 			this._mediatorName = (mediatorName != null) ? mediatorName : Mediator.NAME;
-			this._viewComponent = viewComponent;	
+			this._viewComponent = viewComponent;
 		}
 
 		/**
@@ -53,9 +52,9 @@ module puremvc
 		 *
 		 * @return
 		 * 		The <code>Mediator</code> instance name
-		 */		
-		public getMediatorName():string
-		{	
+		 */
+		public getMediatorName(): string
+		{
 			return this._mediatorName;
 		}
 
@@ -75,8 +74,8 @@ module puremvc
 		 * @return
 		 * 		The <code>Mediator</code>'s default view component.
 		 */
-		public getViewComponent():any
-		{	
+		public getViewComponent(): any
+		{
 			return this._viewComponent;
 		}
 
@@ -86,7 +85,7 @@ module puremvc
 		 * @param viewComponent
 		 * 		The default view component to set for this <code>Mediator</code>.
 		 */
-		public setViewComponent( viewComponent:any ):void
+		public setViewComponent(viewComponent: any): void
 		{
 			this._viewComponent = viewComponent;
 		}
@@ -98,7 +97,7 @@ module puremvc
 		 * @return
 		 * 		The list of notifications names in which is interested the <code>Mediator</code>.
 		 */
-		public listNotificationInterests():string[]
+		public listNotificationInterests(): string[]
 		{
 			return [];
 		}
@@ -110,10 +109,16 @@ module puremvc
 		 * Typically this will be handled in a switch statement, with one 'case' entry per
 		 * <code>INotification</code> the <code>Mediator</code> is interested in.
 		 *
-		 * @param notification
-		 * 		The notification instance to be handled.
-		 */ 
-		public handleNotification( notification:INotification ):void
+		* @param name
+		 * 		The name of the notification.
+		 *
+		 * @param body
+		 * 		Body data to send with the <code>Notification</code>.
+		 * 
+		 * @param type
+		 * 		Type identifier of the <code>Notification</code>.
+		 */
+		public handleNotification(name: string, body: any, type: string): void
 		{
 
 		}
@@ -121,8 +126,8 @@ module puremvc
 		/**
 		 * Called by the View when the Mediator is registered. This method has to be overridden
 		 * by the subclass to know when the instance is registered.
-		 */ 
-		public onRegister():void
+		 */
+		public onRegister(): void
 		{
 
 		}
@@ -130,8 +135,8 @@ module puremvc
 		/**
 		 * Called by the View when the Mediator is removed. This method has to be overridden
 		 * by the subclass to know when the instance is removed.
-		 */ 
-		public onRemove():void
+		 */
+		public onRemove(): void
 		{
 
 		}
@@ -141,6 +146,6 @@ module puremvc
 		 *
 		 * @constant
 		 */
-		private static NAME:string = 'Mediator';
+		private static NAME: string = 'Mediator';
 	}
 }

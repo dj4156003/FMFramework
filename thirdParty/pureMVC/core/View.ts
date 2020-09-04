@@ -141,6 +141,8 @@ module puremvc
 		public notifyObservers(notification: INotification): void
 		{
 			var notificationName: string = notification.getName();
+			var notificationBody: any = notification.getBody();
+			var notificationType: string = notification.getType();
 
 			var observersRef/*Array*/ = this._observerMap[notificationName];
 			if (observersRef)
@@ -151,9 +153,10 @@ module puremvc
 				for (var i/*Number*/ = 0; i < len; i++)
 				{
 					var observer/*Observer*/ = observers[i];
-					observer.notifyObserver(notification);
+					observer.notifyObserver(notificationName, notificationBody, notificationType);
 				}
 			}
+			notification.dispose();
 		}
 
 		/**

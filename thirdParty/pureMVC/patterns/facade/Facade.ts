@@ -371,7 +371,7 @@ module puremvc
 		 */
 		public sendNotification(name: string, body: any = null, type: string = null): void
 		{
-			this.notifyObservers(new Notification(name, body, type));
+			this.notifyObservers(Notification.allocate(name, body, type));
 		}
 
 		/**

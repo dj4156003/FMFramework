@@ -86,10 +86,16 @@ module puremvc
 		 * Typically this will be handled in a switch statement, with one 'case' entry per
 		 * <code>INotification</code> the <code>Mediator</code> is interested in.
 		 *
-		 * @param notification
-		 * 		The notification instance to be handled.
+		 * @param name
+		 * 		The name of the notification.
+		 *
+		 * @param body
+		 * 		Body data to send with the <code>Notification</code>.
+		 * 
+		 * @param type
+		 * 		Type identifier of the <code>Notification</code>.
 		 */
-		handleNotification(notification: INotification): void;
+		handleNotification(name: string, body: any, type: string): void;
 
 		/**
 		 * Called by the View when the Mediator is registered. This method has to be overridden

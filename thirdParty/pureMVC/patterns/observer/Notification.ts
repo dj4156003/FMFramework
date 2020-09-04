@@ -31,26 +31,47 @@ module puremvc
 	export class Notification
 		implements INotification
 	{
+		private static _notificationPool:Notification[] = [];
+
+		public static allocate(name: string, body: any = null, type: string = null):Notification
+		{
+			let notification:Notification = null;
+			if (this._notificationPool.length > 0)
+			{
+				notification = this._notificationPool.pop();
+				notification._name = name;
+				notification._body = body;
+				notification._type = type;
+			}
+			else
+			{
+				notification = new Notification(name, body, type);
+			}
+			notification._released = false;
+			return notification;
+		}
 		/**
 		 * The name of the <code>Notification</code>.
 		 *
 		 * @protected
 		 */
-		name: string = null;
+		protected _name: string = null;
 
 		/**
 		 * The body data to send with the <code>Notification</code>.
 		 *
 		 * @protected
 		 */
-		body: any = null;
+		protected _body: any = null;
 
 		/**
 		 * The type identifier of the <code>Notification</code>.
 		 *
 		 * @protected
 		 */
-		type: string = null;
+		protected _type: string = null;
+
+		private _released:boolean = false;
 
 		/**
 		 * Constructs a <code>Notification</code> instance.
@@ -64,11 +85,11 @@ module puremvc
 		 * @param type
 		 * 		Type identifier of the <code>Notification</code>.
 		 */
-		constructor(name: string, body: any = null, type: string = null)
+		private constructor(name: string, body: any = null, type: string = null)
 		{
-			this.name = name;
-			this.body = body;
-			this.type = type;
+			this._name = name;
+			this._body = body;
+			this._type = type;
 		}
 
 		/**
@@ -77,9 +98,9 @@ module puremvc
 		 * @return
 		 *		The name of the <code>Notification</code> instance.
 		 */
-		getName(): string
+		public getName(): string
 		{
-			return this.name;
+			return this._name;
 		}
 
 		/**
@@ -88,9 +109,9 @@ module puremvc
 		 * @param body
 		 * 		The body of the <code>Notification</code> instance.
 		 */
-		setBody(body: any): void
+		public setBody(body: any): void
 		{
-			this.body = body;
+			this._body = body;
 		}
 
 		/**
@@ -99,9 +120,9 @@ module puremvc
 		 * @return
 		 *		The body object of the <code>Notification</code> instance.
 		 */
-		getBody(): any
+		public getBody(): any
 		{
-			return this.body;
+			return this._body;
 		}
 
 		/**
@@ -110,9 +131,9 @@ module puremvc
 		 * @param type
 		 * 		The type of the <code>Notification</code> instance.
 		 */
-		setType(type: string): void
+		public setType(type: string): void
 		{
-			this.type = type;
+			this._type = type;
 		}
 
 		/**
@@ -121,9 +142,9 @@ module puremvc
 		 * @return
 		 *		The type of the <code>Notification</code> instance.
 		 */
-		getType(): string
+		public getType(): string
 		{
-			return this.type;
+			return this._type;
 		}
 
 		/**
@@ -132,12 +153,28 @@ module puremvc
 		 * @return
 		 * 		The textual representation of the <code>Notification</code>	instance.
 		 */
-		toString(): string
+		public toString(): string
 		{
 			var msg: string = "Notification Name: " + this.getName();
 			msg += "\nBody:" + ((this.getBody() == null) ? "null" : this.getBody().toString());
 			msg += "\nType:" + ((this.getType() == null) ? "null" : this.getType());
 			return msg;
+		}
+
+		/**
+		 * Clean notification resources.
+		 */
+		public dispose(): void
+		{
+			if (!this._released)
+			{
+				this._released = true;
+				this._name = null;
+				this._body = null;
+				this._type = null;
+				let pool:Notification[] = Notification._notificationPool;
+				pool[pool.length] = this;
+			}
 		}
 	}
 }
