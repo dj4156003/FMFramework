@@ -36,12 +36,12 @@ module puremvc
 		 */
 		protected _proxyName: string = null;
 
-		/**
-		 * The name of the <code>Proxy</code>.
-		 *
-		 * @protected
-		 */
-		protected _data: any = null;
+		// /**
+		//  * The name of the <code>Proxy</code>.
+		//  *
+		//  * @protected
+		//  */
+		// protected _data: any = null;
 
 		/**
 		 * Constructs a <code>Proxy</code> instance.
@@ -52,14 +52,14 @@ module puremvc
 		 * @param data
 		 * 		An initial data object to be held by the <code>Proxy</code>.
 		 */
-		public constructor(proxyName: string, data: any = null)
+		public constructor(proxyName: string/*, data: any = null*/)
 		{
 			super();
 
 			this._proxyName = (proxyName != null) ? proxyName : Proxy.NAME;
 
-			if (data != null)
-				this.setData(data);
+			// if (data != null)
+			// 	this.setData(data);
 		}
 
 		/**
@@ -73,27 +73,27 @@ module puremvc
 			return this._proxyName;
 		}
 
-		/**
-		 * Set the data of the <code>Proxy></code> instance.
-		 *
-		 * @param data
-		 * 		The data to set for the <code>Proxy></code> instance.
-		 */
-		public setData(data: any): void
-		{
-			this._data = data;
-		}
+		// /**
+		//  * Set the data of the <code>Proxy></code> instance.
+		//  *
+		//  * @param data
+		//  * 		The data to set for the <code>Proxy></code> instance.
+		//  */
+		// public setData(data: any): void
+		// {
+		// 	this._data = data;
+		// }
 
-		/**
-		 * Get the data of the <code>Proxy></code> instance.
-		 *
-		 * @return
-		 * 		The data held in the <code>Proxy</code> instance.
-		 */
-		public getData(): any
-		{
-			return this._data;
-		}
+		// /**
+		//  * Get the data of the <code>Proxy></code> instance.
+		//  *
+		//  * @return
+		//  * 		The data held in the <code>Proxy</code> instance.
+		//  */
+		// public getData(): any
+		// {
+		// 	return this._data;
+		// }
 
 		/**
 		 * Called by the Model when the <code>Proxy</code> is registered. This method has to be
