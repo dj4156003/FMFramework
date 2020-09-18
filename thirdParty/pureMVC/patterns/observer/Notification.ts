@@ -1,6 +1,6 @@
 ///<reference path='../../interfaces/INotification.ts'/>
 
-module puremvc
+namespace puremvc
 {
 	"use strict";
 

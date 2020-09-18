@@ -4,7 +4,7 @@
 
 ///<reference path='../../patterns/observer/Notifier.ts'/>
 
-module puremvc
+namespace puremvc
 {
 	"use strict";
 

@@ -10,7 +10,7 @@
 ///<reference path='../../core/View.ts'/>
 ///<reference path='../../patterns/observer/Notification.ts'/>
 
-module puremvc
+namespace puremvc
 {
 	"use strict";
 
@@ -68,10 +68,10 @@ module puremvc
 		 */
 		public constructor()
 		{
-			if (Facade.instance)
+			if (Facade._instance)
 				throw Error(Facade.SINGLETON_MSG);
 
-			Facade.instance = this;
+			Facade._instance = this;
 			this.initializeFacade();
 		}
 
@@ -385,7 +385,7 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		static instance: IFacade;
+		protected static _instance: IFacade;
 
 		/**
 		 * Facade singleton factory method.
@@ -393,12 +393,12 @@ module puremvc
 		 * @return
 		 * 		The singleton instance of <code>Facade</code>.
 		 */
-		static getInstance(): IFacade
+		public static getInstance(): IFacade
 		{
-			if (!Facade.instance)
-				Facade.instance = new Facade();
+			if (!Facade._instance)
+				Facade._instance = new Facade();
 
-			return Facade.instance;
+			return Facade._instance;
 		}
 	}
 }

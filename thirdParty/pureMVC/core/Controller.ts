@@ -5,7 +5,7 @@
 ///<reference path='../patterns/observer/Observer.ts'/>
 ///<reference path='../core/View.ts'/>
 
-module puremvc
+namespace puremvc
 {
 	"use strict";
 

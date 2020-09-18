@@ -3,7 +3,7 @@
 ///<reference path='../interfaces/INotification.ts'/>
 ///<reference path='../interfaces/IMediator.ts'/>
 
-module puremvc
+namespace puremvc
 {
 	"use strict";
 

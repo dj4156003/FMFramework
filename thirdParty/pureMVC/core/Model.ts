@@ -1,7 +1,7 @@
 ///<reference path='../interfaces/IModel.ts'/>
 ///<reference path='../interfaces/IProxy.ts'/>
 
-module puremvc
+namespace puremvc
 {
 	"use strict";
 

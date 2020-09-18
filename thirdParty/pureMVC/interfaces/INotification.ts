@@ -1,4 +1,4 @@
-module puremvc
+namespace puremvc
 {
 	/**
 	 * The interface definition for a PureMVC notification.

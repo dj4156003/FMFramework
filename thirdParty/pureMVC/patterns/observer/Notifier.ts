@@ -3,7 +3,7 @@
 
 ///<reference path='../../patterns/facade/Facade.ts'/>
 
-module puremvc
+namespace puremvc
 {
 	"use strict";
 

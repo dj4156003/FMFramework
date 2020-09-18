@@ -1,7 +1,7 @@
 ///<reference path='../interfaces/INotification.ts'/>
 ///<reference path='../interfaces/INotifier.ts'/>
 
-module puremvc
+namespace puremvc
 {
 	/**
 	 * The interface definition for a PureMVC Command.
