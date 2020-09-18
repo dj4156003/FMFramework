@@ -1,0 +1,31 @@
+{
+  "name": "reframework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./out/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dj4156003/REFramework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dj4156003/REFramework/issues"
+  },
+  "homepage": "https://github.com/dj4156003/REFramework#readme",
+  "devDependencies": {
+    "browserify": "^16.5.2",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-transform": "^3.0.5",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-uglify": "^3.0.2",
+    "merge2": "^1.4.1",
+    "tsify": "^5.0.2",
+    "typescript": "^4.0.2",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}
